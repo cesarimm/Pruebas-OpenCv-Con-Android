@@ -12,6 +12,7 @@ import org.opencv.android.OpenCVLoader;
 import org.opencv.core.Mat;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
+import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
 
@@ -60,7 +61,10 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
     @Override
     public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame) {
         Mat frame = inputFrame.rgba();
+       // String filename = "/storage/emulated/0/archivos/MyDesign3D/IMG_20200304_110721.jpg";
+       // Mat frame = Imgcodecs.imread(filename);
         Mat detectedEdges = new Mat();
+
         /*if (counter % 10 == 0){
 
             //Core.flip(frame, frame, 1);
@@ -69,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
         counter = counter + 1;*/
         Imgproc.cvtColor(frame, frame, Imgproc.COLOR_RGBA2GRAY);
         Imgproc.Canny(frame,detectedEdges,50,100);
+        //Imgproc.cornerHarris(frame, detectedEdges, 2, 3, .04);
         return detectedEdges;
     }
 

@@ -65,7 +65,7 @@ public class CameraActivity extends AppCompatActivity {
         preview.addView(mPreview);
 
         // Add a listener to the Capture button
-        /*Button captureButton = (Button) findViewById(R.id.button_capture);
+        Button captureButton = (Button) findViewById(R.id.button_capture);
         captureButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -74,13 +74,7 @@ public class CameraActivity extends AppCompatActivity {
                         mCamera.takePicture(null, null, mPicture);
                     }
                 }
-        );*/
-        Camera.Parameters params = mCamera.getParameters();
-        List<String> focusModes  = params.getSupportedFocusModes();
-        if(focusModes.contains(Camera.Parameters.FOCUS_DISTANCE_FAR_INDEX));
-            Toast.makeText(getApplicationContext(), "DISTANCIA YES",Toast.LENGTH_SHORT).show();
-
-
+        );
     }
 
 
@@ -139,5 +133,4 @@ public class CameraActivity extends AppCompatActivity {
         }
         return mediaFile;
     }
-
 }

@@ -28,6 +28,11 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openCargar(View view){
+        Intent intent = new Intent(this, CargarImg.class);
+        startActivity(intent);
+    }
+
     //Creacion de la carpeta que será utilizada por la aplicación
     public void crearCarpeta(){
         File file = new File(Environment.getExternalStorageDirectory()+"/archivos/");
